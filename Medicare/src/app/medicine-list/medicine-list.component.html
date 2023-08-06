@@ -1,0 +1,32 @@
+<p>medicine-list works!</p>
+
+
+<button class="btn btn-success btn-lg" routerLink="/medicine">Add a new medicine</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Enable/Disable</th>
+            <th>Category</th>
+                       
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of medicinelist; let i = index;">
+            
+            <td>{{item.name}} </td> 
+            <td>{{item.description}}</td>
+            <td>{{item.price}} </td>            
+            <td>{{item.enable}}</td>
+            <td>{{item.category && item.category.name}} </td> 
+            
+           
+            <td><button class="btn btn-primary btn-lg" [routerLink]="['/editMedicine',item.id]">Edit Medicine Details</button></td>
+            <td><button class="btn btn-danger btn-lg" (click)="deleteMedicine(item.id)">Delete Medicine</button></td>
+            </tr>
+    </tbody>
+</table>

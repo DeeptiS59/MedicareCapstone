@@ -1,0 +1,19 @@
+<header><button type="button" class="btn btn-warning" routerLink="/viewMedicine">View Medicine List</button><hr><hr></header>
+<p>Medicine ID being updated: {{medicineId}}</p>
+<form (ngSubmit)="onSubmit()" ngNativeValidate>
+    <label>Add new medicine:</label>
+    <input type="text" value="Add food item here" [(ngModel)]="medicine.name" name="name" required><br>
+    <label>Price:</label>
+    <input type="number" value="000" [(ngModel)]="medicine.price" name="price" required><br>
+    <label>Enable/Disable medicine</label>
+    <input type="checkbox" name="enable" [(ngModel)]="medicine.enable">
+    <label>Category Type:</label>
+    <select name="category" [(ngModel)]="medicine.category.id" required>
+        <option *ngFor="let item of categorylist; let i = index;" [ngValue]="item.id">{{item.name}}</option>
+    
+    </select><hr>
+    <label>Enter Description:</label>
+    <textarea  name="JSON" [ariaValueMax]="50" cols="50" rows="5" [(ngModel)]="medicine.description"></textarea><hr>
+    <input class="btn btn-success btn-lg" type="Submit">
+    <input class="btn btn-primary btn-lg" type="reset">
+    </form>

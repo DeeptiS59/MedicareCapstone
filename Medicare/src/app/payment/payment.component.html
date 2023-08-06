@@ -1,0 +1,10 @@
+
+<form (ngSubmit)="onSubmit()" ngNativeValidate>
+    <label>Enter the following details to complete the payment:</label>
+    <input type="number" name="cardDetails" required><br>
+    <label>Enter your CVV</label>
+    <input type="password" name="CVV" required><br>
+    <label>Card is Valid Upto</label>
+    <input type="date" name="validity" required><br>
+    <input class="btn btn-primary btn-lg" type="Submit">
+</form>

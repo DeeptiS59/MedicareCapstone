@@ -1,0 +1,22 @@
+<b><i>Here is your order summary:</i></b>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            
+            <th>Name</th>
+            <th>Price</th>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of cartItems; let i = index;">
+           
+           
+            <td>{{item.medicine.name}}</td>
+            <td>{{item.medicine.price}}</td>
+            </tr>
+    </tbody>
+</table>
+Total Amount={{cartValue}};
+<p> Your medicine will be delivered in 45 minutes</p>
+<button class="btn btn-success" routerLink="/homepage">Go back to Homepage</button>

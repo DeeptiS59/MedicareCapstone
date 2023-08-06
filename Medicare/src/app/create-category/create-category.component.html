@@ -1,0 +1,7 @@
+<marquee>Hi Admin! This page adds a category to the existing categories</marquee>
+<header><button type="button" class="btn btn-warning" routerLink="/category">View Category List</button><hr></header>
+<form (ngSubmit)="onSubmit()" ngNativeValidate>
+<label>Create Category:</label> <input type="text" value="Create Category" name="Category" [(ngModel)]="category.name" required><hr>
+<input class="btn btn-success btn-lg" type="Submit" value="Submit">
+
+</form>

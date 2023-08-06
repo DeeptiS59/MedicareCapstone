@@ -1,0 +1,54 @@
+<header>
+<button class="btn btn-danger btn-lg" routerLink="/logout">Logout</button>
+<hr>
+<button class="btn btn-primary btn-lg" routerLink="/cart">Go to Cart</button> 
+<select class="d-flex p-1" (change)="sortMedicines($event)">
+<option value="none">None</option>
+<option value="asc">Price lowest to highest </option>
+<option value="desc">Price highest to lowest</option>
+</select>
+</header>
+<div class=" selectedOption d-flex mt-2">
+    <div class=" bgcolorCat p-2 border border-dark border-3">
+        <ul>
+            <li (click)="clearFilter()" [ngClass]="{'selectedCategory':!shouldFilter}">
+                All Medicines
+            </li>
+            
+                <li  *ngFor="let item of categorylist; let i = index;" [ngClass]="{'selectedCategory':item.id==categoryFilter&&shouldFilter}" (click) ="categoryFilters(item.id)">{{item.name}} </li>
+           
+            
+        </ul>
+    </div>
+    <div class="p-2 flex-fill">
+        <label><b><i>Search Medicines:</i></b></label>
+        <input type="search" name="searchItem" (search)="onSearch($event)">
+
+        <hr>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Move to Cart</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of displayedMedicinelist; let i = index;">
+
+                    <td>{{item.name}} </td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.price}} </td>
+                    <td>{{item.category && item.category.name}} </td>
+
+
+                    <td><button class="btn btn-success btn-lg" (click)="addToCart(item.id)">Add To Cart</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
